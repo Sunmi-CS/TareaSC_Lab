@@ -1,10 +1,60 @@
-<form method="POST" action="/contacts/{{ $contact->id }}">
-    @csrf
-    @method('PUT')
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Contacto</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+        .form-box {
+            width: 400px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 6px;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-    <input name="name" value="{{ $contact->name }}">
-    <input name="phone" value="{{ $contact->phone }}">
-    <input name="email" value="{{ $contact->email }}">
+<div class="form-box">
+    <h2>✏️ Editar Contacto</h2>
 
-    <button>Actualizar</button>
-</form>
+    <form method="POST" action="/contacts/{{ $contact->id }}">
+        @csrf
+        @method('PUT')
+
+        <input name="name" value="{{ $contact->name }}">
+        <input name="phone" value="{{ $contact->phone }}">
+        <input name="email" value="{{ $contact->email }}">
+
+        <button>Actualizar</button>
+    </form>
+
+    <a href="/contacts">← Volver</a>
+</div>
+
+</body>
+</html>
